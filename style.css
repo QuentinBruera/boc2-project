@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #f4f5f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+
+}
+section {
+    width: 65%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+.bannerContainer {
+    margin-top: 5%;
+    display: flex;
+    max-height: 15rem;
+}
+.bannerInfo {
+    position: relative;
+    padding: 2vw 0 0 0.5vw;
+    color: #ffffff;
+    background-color: #24305c;
+    width: 50%;
+}
+.bannerInfo::before {
+    content: "";
+    background-color: #24305c;
+    height: 100%;
+    width: 2.625rem;
+    position: absolute;
+    top: 0;
+    right: -1.31rem;
+    transform: skewX(10deg);
+}
+.cityName {
+    font-size: 1.75vw;
+}
+.cityInfo {
+    font-size: 1vw;
+}
+.bannerImg {
+    width: 50%;
+}
+.cardSection {
+    padding-top: 50px;
+}
+.cardContainer {
+    margin: auto auto auto auto;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 800px;
+    background-color: rgb(123, 161, 207);
+    border-radius: 5px 5px;
+}
+.cardTitle {
+    font-size: 1.5vw;
+    text-align: center;
+}
+.tempContainer,
+.picto,
+.humidityContainer {
+    width: 33.33%;
+    height: 150px;
+}
+
+.cardElement {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.temp,
+.humidity {
+    font-size: 2.5vw;
+}
+.tempOwm,
+.tempSensor {
+    padding-top: 20px;
+}
+
+.humiditySensor,
+.humidityOwm {
+    padding-bottom: 20px;
+}
+footer {
+    height: 200px;
+    width: 65%;
+    margin: 0 auto 0 auto;
+    background-color: #24305c;
+}
