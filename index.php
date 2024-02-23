@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="cardSection">
-		<h2 class="cardTitle">Dernier relevé météo pour la ville de Pau</h2>
+		        <h2 class="cardTitle">Dernier relevé météo pour la ville de Pau</h2>
                 <div class="cardContainer">
                     <div class="tempContainer cardElement">
                         <p class="tempOwm temp cardElement"><?php echo $rows[0]["Température_API"]; ?>°C</p>
@@ -38,12 +38,12 @@
                         class="picto"
                     />
                     <div class="humidityContainer cardElement">
-                        <p class="tempSensor temp cardElement"><?php echo $tempCapteur; ?>°C</p>
-                        <p class="humiditySensor humidity cardElement"><?php echo $humidityCapteur; ?>%</p>
+                        <p class="tempSensor temp cardElement"><?php echo $rows[0]["Température_capteur"]; ?>°C</p>
+                        <p class="humiditySensor humidity cardElement"><?php echo $rows[0]["Humidité_capteur"]; ?>%</p>
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="smallCardSection">
                 <?php displaySmallCard($rows); ?>
             </div>
             <form>

@@ -7,12 +7,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
-
 }
 section {
     width: 65%;
-    height: 100%;
     margin: 0 auto;
     background-color: #ffffff;
 }
@@ -28,6 +25,7 @@ section {
     background-color: #24305c;
     width: 50%;
 }
+
 .bannerInfo::before {
     content: "";
     background-color: #24305c;
@@ -90,8 +88,41 @@ section {
     padding-bottom: 20px;
 }
 footer {
-    height: 200px;
-    width: 65%;
+    height: 150px;
+    width: 100vw;
     margin: 0 auto 0 auto;
     background-color: #24305c;
+}
+
+/*smallCard*/
+
+.smallCardSection {
+    padding-top: 50px;
+}
+
+.smallCardContainer {
+    margin: 30px auto auto auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 500px;
+    background-color: rgb(197, 215, 237);
+    border-radius: 5px 5px;
+}
+.smallCardDate {
+    text-align: center;
+}
+.smallCardData {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+.smallPicto {
+    height: 75px;
+}
+.smallCardDataOWMText,
+.smallCardDataSensor {
+    padding-bottom: 5px;
+    font-size: 1vw;
 }

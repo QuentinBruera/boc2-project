@@ -11,19 +11,31 @@ if ($result->num_rows > 0) {
 
 function displaySmallCard($row) {
 	for ($i = 1; $i < min(11, count($row)); $i++) {
-		$temperatureCapteur = htmlspecialchars($row[$i]["Temperature_capteur"]);
-		$humidityCapteur = htmlspecialchars($row[$i]["Humidite_capteur"]);
-		$temperatureApi = htmlspecialchars($row[$i]["Temperature_API"]);
-		$humidityApi = htmlspecialchars($row[$i]["Humidite_API"]);
+		$date = htmlspecialchars($row[$i]['Date']);
+		$temperatureCapteur = htmlspecialchars($row[$i]["Température_capteur"]);
+		$humidityCapteur = htmlspecialchars($row[$i]["Humidité_capteur"]);
+		$temperatureApi = htmlspecialchars($row[$i]["Température_API"]);
+		$humidityApi = htmlspecialchars($row[$i]["Humidité_API"]);
 
-		echo '<div class="smallCardContainer">';
-		echo '<h3 class="smallCardDate">789</h3>';
-		echo '<div class="smallCardData">';
-		echo '<img src="https://meteofrance.com/modules/custom/mf_tools_common_theme_public/svg/weather/p2j.svg" alt="" class="smallPicto"/>';
-		echo '<div class="smallCardDataOWM">';
-		echo '</div>';
-		echo '</div>';
-		echo '</div>';
+        $cardHTML = <<<CARD
+			<div class="smallCardContainer">
+				<h3 class="smallCardDate">{$date}</h3>
+				<div class="smallCardData">
+					<img src="https://meteofrance.com/modules/custom/mf_tools_common_theme_public/svg/weather/p2j.svg" alt="" class="smallPicto"/>
+					<div class="smallCardDataOWM">
+						<p class="smallCardDataOWMText">OWM</p>
+						<p class="smallCardDataOWMTemp">{$temperatureApi}°C</p>
+						<p class="smallCardDataOWMHumidity">{$humidityApi}%</p>
+					</div>
+					<div class="smallCardDataSensor">
+						<p class="smallCardDataSensorText">Capteur</p>
+						<p class="smallCardDataSensorTemp">{$temperatureCapteur}°C</p>
+						<p class="smallCardDataSensorHumidity">{$humidityCapteur}%</p>
+					</div>
+				</div>
+			</div>
+			CARD;
+        echo $cardHTML;
 	}
 }
 
