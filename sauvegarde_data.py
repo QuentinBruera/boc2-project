@@ -1,5 +1,10 @@
 import bme280
 import requests
+import os
+from dotenv import load_dotenv
+
+# Chargement des variables d'environnement du fichier .env
+load_dotenv()
 
 temperature,pressure,humidity = bme280.readBME280All()
 
@@ -16,7 +21,7 @@ def obtenir_temperature(ville, pays, api_key):
     else:
         return "Erreur dans la requête"
 
-api_key = '9a8209372f8443026c5ab07c38856708'
+api_key = os.getenv('API_KEY')
 ville = 'Pau'
 pays = 'FR'
 results = obtenir_temperature(ville, pays, api_key)
