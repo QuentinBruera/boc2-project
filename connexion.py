@@ -45,7 +45,7 @@ connection = mysql.connector.connect(
         host=os.getenv('HOST'),
         database=os.getenv('DATABASE'),
         user=os.getenv('USER'),
-        password=os.getenv('nitneuq'),
+        password=os.getenv('PASSWORD'),
 )
 try:
 
