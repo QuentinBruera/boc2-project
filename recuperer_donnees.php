@@ -2,8 +2,10 @@
 include 'connexion.php';
 
 //$sql = "SELECT Temperature.Ville_ID, Temperature.Température_capteur, Temperature.Humidité_capteur, Temperature.Température_API, Temperature.Humidité_API, Temperature.Date FROM Temperature WHERE Temperature.Ville_ID=1 ORDER BY Temperature.Date DESC LIMIT 1;";
-$sql2 = "SELECT Temperature.Ville_ID, Temperature.Température_capteur, Temperature.Humidité_capteur, Temperature.Température_API, Temperature.Humidité_API, Temperature.Date FROM Temperature WHERE Temperature.Ville_ID=1 ORDER BY Temperature.Date DESC;";
-$result = $conn->query($sql2);
+
+$sql = "SELECT Temperature.Ville_ID, Temperature.Température_capteur, Temperature.Humidité_capteur, Temperature.Température_API, Temperature.Humidité_API, Temperature.Date, Temperature.Picto FROM Temperature WHERE Temperature.Ville_ID=1 ORDER BY Temperature.Date DESC;";
+
+$result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
 	$rows = $result->fetch_all(MYSQLI_ASSOC);
@@ -11,17 +13,18 @@ if ($result->num_rows > 0) {
 
 function displaySmallCard($row) {
 	for ($i = 1; $i < min(11, count($row)); $i++) {
-		$date = htmlspecialchars($row[$i]['Date']);
-		$temperatureCapteur = htmlspecialchars($row[$i]["Température_capteur"]);
-		$humidityCapteur = htmlspecialchars($row[$i]["Humidité_capteur"]);
-		$temperatureApi = htmlspecialchars($row[$i]["Température_API"]);
-		$humidityApi = htmlspecialchars($row[$i]["Humidité_API"]);
+		$date = !empty($row[$i]["Date"]) ? htmlspecialchars($row[$i]["Date"]) : '';
+		$temperatureCapteur = !empty($row[$i]["Température_capteur"]) ? htmlspecialchars($row[$i]["Température_capteur"]) : 'NULL';
+		$humidityCapteur = !empty($row[$i]["Humidité_capteur"]) ? htmlspecialchars($row[$i]["Humidité_capteur"]) : 'NULL';
+		$temperatureApi = !empty($row[$i]["Température_API"]) ? htmlspecialchars($row[$i]["Température_API"]) : 'NULL';
+		$humidityApi = !empty($row[$i]["Humidité_API"]) ? htmlspecialchars($row[$i]["Humidité_API"]) : 'NULL';
+		$picto = !empty($row[$i]["Picto"]) ? htmlspecialchars($row[$i]["Picto"]) : '';
 
         $cardHTML = <<<CARD
 			<div class="smallCardContainer">
 				<h3 class="smallCardDate">{$date}</h3>
 				<div class="smallCardData">
-					<img src="https://meteofrance.com/modules/custom/mf_tools_common_theme_public/svg/weather/p2j.svg" alt="" class="smallPicto"/>
+					<img src="{$picto}" alt="{$picto}" class="smallPicto"/>
 					<div class="smallCardDataOWM">
 						<p class="smallCardDataOWMText">OWM</p>
 						<p class="smallCardDataOWMTemp">{$temperatureApi}°C</p>

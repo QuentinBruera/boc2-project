@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="style.css" />
         <title>Document</title>
-    </head>
+    </head> 
     <body>
 	<?php include 'recuperer_donnees.php'; ?>
         <head></head>
@@ -26,15 +26,15 @@
                 </div>
             </div>
             <div class="cardSection">
-		        <h2 class="cardTitle">Dernier relevé météo pour la ville de Pau</h2>
+                <h2 class="cardTitle"><?php echo $rows[0]["Date"]; ?></h2>
                 <div class="cardContainer">
                     <div class="tempContainer cardElement">
                         <p class="tempOwm temp cardElement"><?php echo $rows[0]["Température_API"]; ?>°C</p>
                         <p class="humidityOwm temp cardElement"><?php echo $rows[0]["Humidité_API"]; ?>%</p>
                     </div>
                     <img
-                        src="https://meteofrance.com/modules/custom/mf_tools_common_theme_public/svg/weather/p2j.svg"
-                        alt=""
+                        src="<?php echo $rows[0]["Picto"]; ?>"
+                        alt="<?php echo $rows[0]["Picto"]; ?>"
                         class="picto"
                     />
                     <div class="humidityContainer cardElement">

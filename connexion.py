@@ -1,8 +1,13 @@
+import os
 import mysql.connector
 from mysql.connector import Error
 import bme280
 import requests
 from datetime import date
+from dotenv import load_dotenv
+
+# Chargement des variables d'environnement du fichier .env
+load_dotenv()
 
 #Récuperation de la DATA du capteur
 temperature,pressure,humidity = bme280.readBME280All()
@@ -14,12 +19,17 @@ def obtenir_temperature(ville, pays, api_key):
      reponse = requests.get(url)
      if reponse.status_code == 200:
         donnees_meteo = reponse.json()
-        results = [donnees_meteo['main']['temp'],donnees_meteo['main']['humidity'],donnees_meteo['dt']]
+        results = [
+            donnees_meteo['main']['temp'], 
+            donnees_meteo['main']['humidity'], 
+            donnees_meteo['dt'], 
+            donnees_meteo['weather'][0]['icon']
+        ]
         return results
      else:
         return "Erreur dans la requête"
 
-api_key = '9a8209372f8443026c5ab07c38856708'
+api_key = os.getenv('API_KEY')
 ville = 'Pau'
 pays = 'FR'
 results = obtenir_temperature(ville, pays, api_key)
@@ -32,11 +42,11 @@ formatted_date = date.strftime('%Y-%m-%d')
 
 #Information de connexion à la base de données
 connection = mysql.connector.connect(
-        host='localhost',
-        database='BLOC2',
-        user='quentin',
-        password='nitneuq')
-
+        host=os.getenv('HOST'),
+        database=os.getenv('DATABASE'),
+        user=os.getenv('USER'),
+        password=os.getenv('nitneuq'),
+)
 try:
 
     if connection.is_connected():
@@ -46,7 +56,7 @@ try:
         cursor.execute("select database();")
         record = cursor.fetchone()
         print("Vous êtes connecté à la base de données: ", record)
-        cursor.execute(f"INSERT INTO `Temperature`(`Ville_ID`, `Date`, `Température_Capteur`, `Picto`, `Humidité_Capteur`, `Température_API`, `Humidité_API`) VALUES  ('1', '{formatted_date}', {temperature}, 'https://meteofrance.com/modules/custom/mf_tools_common_theme_public/svg/weather/p2j.svg', {humidity}, {results[0]}, {results[1]})")
+        cursor.execute(f"INSERT INTO `Temperature`(`Ville_ID`, `Date`, `Température_Capteur`, `Picto`, `Humidité_Capteur`, `Température_API`, `Humidité_API`) VALUES  ('1', '{formatted_date}', {temperature}, 'http://openweathermap.org/img/w/{results[3]}.png', {humidity}, {results[0]}, {results[1]})")
         connection.commit()
 except Error as e:
     print("Erreur lors de la connexion à MySQL", e)

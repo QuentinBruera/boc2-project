@@ -62,12 +62,16 @@ section {
     text-align: center;
 }
 .tempContainer,
-.picto,
 .humidityContainer {
     width: 33.33%;
     height: 150px;
 }
 
+.picto {
+    width: 15%;
+    height: 15%;
+    margin: auto;
+}
 .cardElement {
     margin: auto;
     text-align: center;
@@ -121,7 +125,7 @@ footer {
 .smallPicto {
     height: 75px;
 }
-.smallCardDataOWMText,
+.smallCardDataOWM,
 .smallCardDataSensor {
     padding-bottom: 5px;
     font-size: 1vw;
