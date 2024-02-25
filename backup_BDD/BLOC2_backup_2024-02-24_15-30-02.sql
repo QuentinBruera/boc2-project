@@ -34,7 +34,7 @@ CREATE TABLE `Temperature` (
   PRIMARY KEY (`ID`),
   KEY `fk_ville` (`Ville_ID`),
   CONSTRAINT `fk_ville` FOREIGN KEY (`Ville_ID`) REFERENCES `Ville` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -56,7 +56,8 @@ INSERT INTO `Temperature` VALUES
 (24,1,'2024-02-21',23,'https://meteofrance.com/modules/custom/mf_tools_common_theme_public/svg/weather/p2j.svg',46,17,42),
 (25,1,'2024-02-22',25,'https://meteofrance.com/modules/custom/mf_tools_common_theme_public/svg/weather/p2j.svg',43,20,37),
 (26,1,'2024-02-23',23,'http://openweathermap.org/img/w/11n.png',48,5,87),
-(27,1,'2024-02-24',24,'http://openweathermap.org/img/w/10n.png',48,4,93);
+(27,1,'2024-02-24',24,'http://openweathermap.org/img/w/10n.png',48,4,93),
+(35,1,'2024-02-24',23,'http://openweathermap.org/img/w/10d.png',0,5,93);
 /*!40000 ALTER TABLE `Temperature` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,4 +99,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-24  2:31:46
+-- Dump completed on 2024-02-24 15:30:02

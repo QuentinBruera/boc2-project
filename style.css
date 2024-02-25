@@ -11,10 +11,10 @@ body {
 section {
     width: 65%;
     margin: 0 auto;
+    padding-bottom: 50px;
     background-color: #ffffff;
 }
 .bannerContainer {
-    margin-top: 5%;
     display: flex;
     max-height: 15rem;
 }
@@ -94,7 +94,7 @@ section {
 footer {
     height: 150px;
     width: 100vw;
-    margin: 0 auto 0 auto;
+    margin: auto auto 0 auto;
     background-color: #24305c;
 }
 

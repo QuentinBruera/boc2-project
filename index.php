@@ -7,7 +7,7 @@
         <title>Document</title>
     </head> 
     <body>
-	<?php include 'recuperer_donnees.php'; ?>
+	<?php include 'data_affichage.php'; ?>
         <head></head>
         <section>
             <div>
@@ -46,12 +46,7 @@
             <div class="smallCardSection">
                 <?php displaySmallCard($rows); ?>
             </div>
-            <form>
-                <label for="date">Choisissez une date:</label>
-                <input type="date" id="date" name="date" />
-            </form>
         </section>
         <footer></footer>
     </body>
-    <script src="index.js"></script>
 </html>
