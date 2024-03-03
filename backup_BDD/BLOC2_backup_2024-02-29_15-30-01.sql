@@ -34,7 +34,7 @@ CREATE TABLE `Temperature` (
   PRIMARY KEY (`ID`),
   KEY `fk_ville` (`Ville_ID`),
   CONSTRAINT `fk_ville` FOREIGN KEY (`Ville_ID`) REFERENCES `Ville` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,7 +57,11 @@ INSERT INTO `Temperature` VALUES
 (25,1,'2024-02-22',25,'https://meteofrance.com/modules/custom/mf_tools_common_theme_public/svg/weather/p2j.svg',43,20,37),
 (26,1,'2024-02-23',23,'http://openweathermap.org/img/w/11n.png',48,5,87),
 (27,1,'2024-02-24',24,'http://openweathermap.org/img/w/10n.png',48,4,93),
-(35,1,'2024-02-24',23,'http://openweathermap.org/img/w/10d.png',0,5,93);
+(36,1,'2024-02-25',24,'http://openweathermap.org/img/w/10d.png',52,15,58),
+(40,1,'2024-02-25',25,'http://openweathermap.org/img/w/10n.png',45,11,87),
+(42,1,'2024-02-26',21,'http://openweathermap.org/img/w/10d.png',45,10,76),
+(43,1,'2024-02-27',19,'http://openweathermap.org/img/w/04d.png',52,7,93),
+(44,1,'2024-02-28',22,'http://openweathermap.org/img/w/02d.png',42,12,40);
 /*!40000 ALTER TABLE `Temperature` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -99,4 +103,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-02-24 15:30:02
+-- Dump completed on 2024-02-29 15:30:01

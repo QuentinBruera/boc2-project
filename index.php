@@ -13,7 +13,7 @@
             <div>
                 <div class="bannerContainer">
                     <div class="bannerInfo">
-                        <h2 class="cityName">PAU <?php echo $test;?></h2>
+                        <h2 class="cityName"><?= $rows[0]["NomVille"]; ?></h2>
                         <p class="cityInfo">
                             64000 - Pyrénées-Atlantique - France
                         </p>
@@ -38,8 +38,8 @@
                         class="picto"
                     />
                     <div class="humidityContainer cardElement">
-                        <p class="tempSensor temp cardElement"><?php echo $rows[0]["Température_capteur"]; ?>°C</p>
-                        <p class="humiditySensor humidity cardElement"><?php echo $rows[0]["Humidité_capteur"]; ?>%</p>
+                        <p class="tempSensor temp cardElement"><?php echo $rows[0]["Température_Capteur"]; ?>°C</p>
+                        <p class="humiditySensor humidity cardElement"><?php echo $rows[0]["Humidité_Capteur"]; ?>%</p>
                     </div>
                 </div>
             </div>
